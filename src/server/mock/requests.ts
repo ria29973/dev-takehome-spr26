@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // ^ disable rules because we are validating anys to make sure it conforms else erroring
-import mockItemRequests from "@/app/api/mock/data";
+import mockItemRequests from "@/app/api/request/mock/data";
 import { PAGINATION_PAGE_SIZE } from "@/lib/constants/config";
 import { InvalidInputError } from "@/lib/errors/inputExceptions";
 import {

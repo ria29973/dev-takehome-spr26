@@ -7,7 +7,7 @@ export default function Kewl() {
       Feel free to put links, images, whatever! 
       Don't worry about styling- we aren't grading you on this- it's just to get to know you better! :) 
       */}
-      😎😎😎
+      I transfered to Georgia Tech my second year from Connecticut!
     </div>
   );
 }
