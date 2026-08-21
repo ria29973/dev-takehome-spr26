@@ -32,3 +32,4 @@
 # Notes
 
 <!-- Notes go here -->
+I would have liked to complete the front end portion as well, but I felt less confident in that and didn't have enough time this week to do it 

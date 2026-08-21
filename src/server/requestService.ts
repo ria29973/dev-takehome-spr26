@@ -2,10 +2,12 @@ import requestModel  from "./models/requestModel"
 import { PAGINATION_PAGE_SIZE } from "@/lib/constants/config";
 import { InvalidInputError} from "@/lib/errors/inputExceptions";
 import { CreateItemRequest, UpdateStatusInput, ItemRequest } from "@/lib/types/requestInterfaces";
+import connectDb from "./connectDb";
 
 
 
 export async function createItemRequest(data: CreateItemRequest): Promise<ItemRequest> {
+    await connectDb();
     const newRequest = new requestModel({
         requestorName: data.requestorName,
         itemRequested: data.itemRequested,
@@ -20,6 +22,7 @@ export async function createItemRequest(data: CreateItemRequest): Promise<ItemRe
 }
 
 export async function getItemRequests(page: number = 1, status?: string) {
+    await connectDb(); 
     const filter = status ? { status: status as "pending" | "completed" | "approved" | "rejected" } : {};
     const skip = (page - 1) * PAGINATION_PAGE_SIZE; 
     const total = await requestModel.countDocuments(filter); 
@@ -38,7 +41,7 @@ export async function getItemRequests(page: number = 1, status?: string) {
 }
 
 export async function updateItemStatus(data: UpdateStatusInput): Promise<ItemRequest> {
-  
+    await connectDb(); 
     const result = await requestModel.findByIdAndUpdate(
         data.id, 
         {
